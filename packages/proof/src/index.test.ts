@@ -18,8 +18,9 @@ describe("Proof", () => {
     const signal = "0x111"
     const chainID = BigInt(1099511629113);
 
-    const snarkArtifactsPath = "./packages/proof/snark-artifacts"
-    const snarkArtifactsUrl = `https://semaphore-fixtures.s3.amazonaws.com/${treeDepth}/${circuitLength}`
+    const snarkArtifactsPath = `./packages/proof/snark-artifacts/${treeDepth}/${circuitLength}`;
+    const snarkArtifactsUrl = `https://semaphore-fixtures.s3.amazonaws.com/${treeDepth}/${circuitLength}`;
+    console.log(snarkArtifactsPath)
 
     const identity = new Identity(chainID)
     const identityCommitment = identity.generateCommitment()
@@ -30,14 +31,17 @@ describe("Proof", () => {
     beforeAll(async () => {
         curve = await getCurveFromName("bn128")
 
+        // const url = `https://semaphore-fixtures.s3.amazonaws.com/${treeDepth}/${circuitLength}`
+
         if (!fs.existsSync(snarkArtifactsPath)) {
-            fs.mkdirSync(snarkArtifactsPath)
+            fs.mkdirSync(snarkArtifactsPath, { recursive: true })
         }
 
         if (!fs.existsSync(`${snarkArtifactsPath}/circuit_final.zkey`)) {
+            // await download(`https://semaphore-fixtures.s3.amazonaws.com/20/2/semaphore_20_2.wasm`)
             await download(`${snarkArtifactsUrl}/semaphore_${treeDepth}_${circuitLength}.wasm`, snarkArtifactsPath)
             await download(`${snarkArtifactsUrl}/circuit_final.zkey`, snarkArtifactsPath)
-            // await download(`${snarkArtifactsUrl}/semaphore.json`, snarkArtifactsPath)
+            await download(`${snarkArtifactsUrl}/verification_key.json`, snarkArtifactsPath)
         }
     }, 10000)
 
@@ -53,8 +57,8 @@ describe("Proof", () => {
 
             const fun = () =>
                 generateProof(identity, group, externalNullifier, signal, {
-                    wasmFilePath: `${snarkArtifactsUrl}/semaphore_${treeDepth}_${circuitLength}.wasm`,
-                    zkeyFilePath: `${snarkArtifactsUrl}/circuit_final.zkey`
+                    wasmFilePath: `${snarkArtifactsPath}/semaphore_${treeDepth}_${circuitLength}.wasm`,
+                    zkeyFilePath: `${snarkArtifactsPath}/circuit_final.zkey`
                 })
 
             await expect(fun).rejects.toThrow("The identity is not part of the group")
@@ -76,8 +80,8 @@ describe("Proof", () => {
             group.addMembers([BigInt(1), BigInt(2), identityCommitment])
 
             fullProof = await generateProof(identity, group, externalNullifier, signal, {
-                wasmFilePath: `${snarkArtifactsUrl}/semaphore_${treeDepth}_${circuitLength}.wasm`,
-                zkeyFilePath: `${snarkArtifactsUrl}/circuit_final.zkey`
+                wasmFilePath: `${snarkArtifactsPath}/semaphore_${treeDepth}_${circuitLength}.wasm`,
+                zkeyFilePath: `${snarkArtifactsPath}/circuit_final.zkey`
             })
 
             expect(typeof fullProof).toBe("object")
@@ -91,8 +95,8 @@ describe("Proof", () => {
             group.addMembers([BigInt(1), BigInt(2), identityCommitment])
 
             fullProof = await generateProof(identity, group, externalNullifier, signal, {
-                wasmFilePath: `${snarkArtifactsPath}/semaphore.wasm`,
-                zkeyFilePath: `${snarkArtifactsPath}/semaphore.zkey`
+                wasmFilePath: `${snarkArtifactsPath}/semaphore_${treeDepth}_${circuitLength}.wasm`,
+                zkeyFilePath: `${snarkArtifactsPath}/circuit_final.zkey`
             })
 
             expect(typeof fullProof).toBe("object")
@@ -127,7 +131,7 @@ describe("Proof", () => {
 
     describe("# verifyProof", () => {
         it("Should generate and verify a Semaphore proof", async () => {
-            const verificationKey = JSON.parse(fs.readFileSync(`${snarkArtifactsPath}/semaphore.json`, "utf-8"))
+            const verificationKey = JSON.parse(fs.readFileSync(`${snarkArtifactsPath}/verification_key.json`, "utf-8"))
 
             const response = await verifyProof(verificationKey, fullProof)
 
