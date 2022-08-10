@@ -11,10 +11,12 @@ export default function verifyProof(verificationKey: any, { proof, publicSignals
     return groth16.verify(
         verificationKey,
         [
-            publicSignals.merkleRoot,
-            publicSignals.nullifierHash,
             publicSignals.signalHash,
-            publicSignals.externalNullifier
+            publicSignals.externalNullifier,
+            publicSignals.roots,
+            publicSignals.chainID,
+            publicSignals.calculatedRoot,
+            publicSignals.nullifierHash
         ],
         proof
     )

@@ -1,10 +1,10 @@
 {
-    "name": "semaphore.js",
-    "description": "A monorepo of Semaphore JavaScript libraries.",
+    "name": "semaphore-anchor.js",
+    "description": "A monorepo of Semaphore-anchor JavaScript libraries.",
     "license": "MIT",
-    "repository": "git@github.com:semaphore-protocol/semaphore.js.git",
-    "homepage": "https://github.com/semaphore-protocol/semaphore.js",
-    "bugs": "https://github.com/semaphore-protocol/semaphore.js/issues",
+    "repository": "git@github.com:webb-tools/semaphore.js.git",
+    "homepage": "https://github.com/webb-tools/semaphore.js",
+    "bugs": "https://github.com/webb-tools/semaphore.js/issues",
     "private": true,
     "scripts": {
         "build": "yarn workspaces foreach run build",

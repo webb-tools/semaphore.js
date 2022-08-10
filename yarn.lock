@@ -1619,6 +1619,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ethersproject/abi@npm:^5.6.4":
+  version: 5.6.4
+  resolution: "@ethersproject/abi@npm:5.6.4"
+  dependencies:
+    "@ethersproject/address": ^5.6.1
+    "@ethersproject/bignumber": ^5.6.2
+    "@ethersproject/bytes": ^5.6.1
+    "@ethersproject/constants": ^5.6.1
+    "@ethersproject/hash": ^5.6.1
+    "@ethersproject/keccak256": ^5.6.1
+    "@ethersproject/logger": ^5.6.0
+    "@ethersproject/properties": ^5.6.0
+    "@ethersproject/strings": ^5.6.1
+  checksum: b5e70fa13a29e1143131a0ed25053a3d355c07353e13d436f42add33f40753b5541a088cf31a1ccca6448bb1d773a41ece0bf8367490d3f2ad394a4c26f4876f
+  languageName: node
+  linkType: hard
+
 "@ethersproject/abstract-provider@npm:^5.6.1":
   version: 5.6.1
   resolution: "@ethersproject/abstract-provider@npm:5.6.1"
@@ -1669,6 +1686,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ethersproject/basex@npm:^5.6.1":
+  version: 5.6.1
+  resolution: "@ethersproject/basex@npm:5.6.1"
+  dependencies:
+    "@ethersproject/bytes": ^5.6.1
+    "@ethersproject/properties": ^5.6.0
+  checksum: a14b75d2c25d0ac00ce0098e5bd338d4cce7a68c583839b2bc4e3512ffcb14498b18cbcb4e05b695d216d2a23814d0c335385f35b3118735cc4895234db5ae1c
+  languageName: node
+  linkType: hard
+
 "@ethersproject/bignumber@npm:^5.0.7, @ethersproject/bignumber@npm:^5.5.0, @ethersproject/bignumber@npm:^5.6.2":
   version: 5.6.2
   resolution: "@ethersproject/bignumber@npm:5.6.2"
@@ -1698,7 +1725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/hash@npm:^5.0.4":
+"@ethersproject/hash@npm:^5.0.4, @ethersproject/hash@npm:^5.6.1":
   version: 5.6.1
   resolution: "@ethersproject/hash@npm:5.6.1"
   dependencies:
@@ -1749,7 +1776,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/random@npm:^5.5.1":
+"@ethersproject/providers@npm:^5.6.8":
+  version: 5.6.8
+  resolution: "@ethersproject/providers@npm:5.6.8"
+  dependencies:
+    "@ethersproject/abstract-provider": ^5.6.1
+    "@ethersproject/abstract-signer": ^5.6.2
+    "@ethersproject/address": ^5.6.1
+    "@ethersproject/base64": ^5.6.1
+    "@ethersproject/basex": ^5.6.1
+    "@ethersproject/bignumber": ^5.6.2
+    "@ethersproject/bytes": ^5.6.1
+    "@ethersproject/constants": ^5.6.1
+    "@ethersproject/hash": ^5.6.1
+    "@ethersproject/logger": ^5.6.0
+    "@ethersproject/networks": ^5.6.3
+    "@ethersproject/properties": ^5.6.0
+    "@ethersproject/random": ^5.6.1
+    "@ethersproject/rlp": ^5.6.1
+    "@ethersproject/sha2": ^5.6.1
+    "@ethersproject/strings": ^5.6.1
+    "@ethersproject/transactions": ^5.6.2
+    "@ethersproject/web": ^5.6.1
+    bech32: 1.1.4
+    ws: 7.4.6
+  checksum: 27dc2005e1ae7a6d498bb0bbacc6ad1f7164a599cf5aaad7c51cfd7c4d36d0cc5c7c40ba504f9017c746e8a0f008f15ad24e9961816793b49755dcb5c01540c0
+  languageName: node
+  linkType: hard
+
+"@ethersproject/random@npm:^5.5.1, @ethersproject/random@npm:^5.6.1":
   version: 5.6.1
   resolution: "@ethersproject/random@npm:5.6.1"
   dependencies:
@@ -2221,6 +2276,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openzeppelin/contracts@npm:^4.4.2":
+  version: 4.7.2
+  resolution: "@openzeppelin/contracts@npm:4.7.2"
+  checksum: f02f2b44cdec46bafe1b608b495b6e2dc161ae4a3f308ba9921787cb77b8b877232839047b12f03b4d0fee9ca9208887fd5b9e7bdbf9a8c4f01021b1f1181233
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-typescript@npm:^8.3.0":
   version: 8.3.2
   resolution: "@rollup/plugin-typescript@npm:8.3.2"
@@ -2258,50 +2320,61 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semaphore-protocol/group@2.0.0, @semaphore-protocol/group@workspace:packages/group":
+"@semaphore-anchor/group@0.0.1, @semaphore-anchor/group@workspace:packages/group":
   version: 0.0.0-use.local
-  resolution: "@semaphore-protocol/group@workspace:packages/group"
+  resolution: "@semaphore-anchor/group@workspace:packages/group"
   dependencies:
+    "@ethersproject/abi": ^5.6.4
+    "@ethersproject/bytes": ^5.6.1
+    "@ethersproject/providers": ^5.6.8
+    "@openzeppelin/contracts": ^4.4.2
     "@zk-kit/incremental-merkle-tree": 0.4.3
+    "@zk-kit/incremental-merkle-tree.sol": ^1.0.0
     circomlibjs: 0.0.8
+    rollup: ^2.77.2
     rollup-plugin-cleanup: ^3.2.1
     rollup-plugin-typescript2: ^0.31.2
     typedoc: ^0.22.11
+    typescript: ^4.5.5
   languageName: unknown
   linkType: soft
 
-"@semaphore-protocol/identity@2.0.0, @semaphore-protocol/identity@workspace:packages/identity":
+"@semaphore-anchor/identity@0.0.1, @semaphore-anchor/identity@workspace:packages/identity":
   version: 0.0.0-use.local
-  resolution: "@semaphore-protocol/identity@workspace:packages/identity"
+  resolution: "@semaphore-anchor/identity@workspace:packages/identity"
   dependencies:
     "@ethersproject/bignumber": ^5.5.0
     "@ethersproject/random": ^5.5.1
     "@ethersproject/sha2": ^5.6.1
     "@ethersproject/strings": ^5.6.1
     circomlibjs: 0.0.8
+    rollup: ^2.77.2
     rollup-plugin-cleanup: ^3.2.1
     rollup-plugin-typescript2: ^0.31.2
     typedoc: ^0.22.11
+    typescript: ^4.5.5
   languageName: unknown
   linkType: soft
 
-"@semaphore-protocol/proof@workspace:packages/proof":
+"@semaphore-anchor/proof@workspace:packages/proof":
   version: 0.0.0-use.local
-  resolution: "@semaphore-protocol/proof@workspace:packages/proof"
+  resolution: "@semaphore-anchor/proof@workspace:packages/proof"
   dependencies:
     "@ethersproject/bytes": ^5.5.0
     "@ethersproject/solidity": ^5.5.0
     "@ethersproject/strings": ^5.5.0
-    "@semaphore-protocol/group": 2.0.0
-    "@semaphore-protocol/identity": 2.0.0
+    "@semaphore-anchor/group": 0.0.1
+    "@semaphore-anchor/identity": 0.0.1
     "@zk-kit/incremental-merkle-tree": 0.4.3
     circomlibjs: 0.0.8
     download: ^8.0.0
     ffjavascript: ^0.2.54
+    rollup: ^2.77.2
     rollup-plugin-cleanup: ^3.2.1
     rollup-plugin-typescript2: ^0.31.2
     snarkjs: ^0.4.13
     typedoc: ^0.22.11
+    typescript: ^4.5.5
   languageName: unknown
   linkType: soft
 
@@ -2805,6 +2878,13 @@ __metadata:
     tslib: ^2
     upath2: ^3.1.13
   checksum: 86208b0881c9b262ee9545cc99deec7764f268d4b2fd82b4555d9ef3ec8cdc00a27c81e2c4fb01377052648353d40a515530caf319431637e1146bdd948947a6
+  languageName: node
+  linkType: hard
+
+"@zk-kit/incremental-merkle-tree.sol@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "@zk-kit/incremental-merkle-tree.sol@npm:1.2.0"
+  checksum: 7fc03fe399bc18e6a6e3775e1fd37f85cfea01846004e3a7d3829eeef11bccd432685aaab03045e7c24f42df67c9ec89c5fa01b36c1c47576874e1ef3b57cc08
   languageName: node
   linkType: hard
 
@@ -3367,6 +3447,13 @@ __metadata:
   dependencies:
     tweetnacl: ^0.14.3
   checksum: 4edfc9fe7d07019609ccf797a2af28351736e9d012c8402a07120c4453a3b789a15f2ee1530dc49eee8f7eb9379331a8dd4b3766042b9e502f74a68e7f662291
+  languageName: node
+  linkType: hard
+
+"bech32@npm:1.1.4":
+  version: 1.1.4
+  resolution: "bech32@npm:1.1.4"
+  checksum: 0e98db619191548390d6f09ff68b0253ba7ae6a55db93dfdbb070ba234c1fd3308c0606fbcc95fad50437227b10011e2698b89f0181f6e7f845c499bd14d0f4b
   languageName: node
   linkType: hard
 
@@ -10135,6 +10222,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^2.77.2":
+  version: 2.77.2
+  resolution: "rollup@npm:2.77.2"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 5a84fb98a6f858906bceba091430442f6c1f362b07c5fa9123b708f87e39f52640e34a189cd9a1776ceae61300055c78ba648205fa03188451539ebeb19797df
+  languageName: node
+  linkType: hard
+
 "run-async@npm:^2.2.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -10230,9 +10331,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semaphore.js@workspace:.":
+"semaphore-anchor.js@workspace:.":
   version: 0.0.0-use.local
-  resolution: "semaphore.js@workspace:."
+  resolution: "semaphore-anchor.js@workspace:."
   dependencies:
     "@babel/core": ^7.16.7
     "@babel/preset-env": ^7.16.8
@@ -11403,6 +11504,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^4.5.5":
+  version: 4.7.4
+  resolution: "typescript@npm:4.7.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 5750181b1cd7e6482c4195825547e70f944114fb47e58e4aa7553e62f11b3f3173766aef9c281783edfd881f7b8299cf35e3ca8caebe73d8464528c907a164df
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
   version: 4.7.3
   resolution: "typescript@patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"
@@ -11410,6 +11521,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 137d18a77f52254a284960b16ab53d0619f57b69b5d585804b8413f798a1175ce3e774fb95e6a101868577aafe357d8fcfc9171f0dc9fc0c210e9ae59d107cc0
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.5.5#~builtin<compat/typescript>":
+  version: 4.7.4
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 9096d8f6c16cb80ef3bf96fcbbd055bf1c4a43bd14f3b7be45a9fbe7ada46ec977f604d5feed3263b4f2aa7d4c7477ce5f9cd87de0d6feedec69a983f3a4f93e
   languageName: node
   linkType: hard
 
@@ -12183,6 +12304,21 @@ __metadata:
     signal-exit: ^3.0.2
     typedarray-to-buffer: ^3.1.5
   checksum: c55b24617cc61c3a4379f425fc62a386cc51916a9b9d993f39734d005a09d5a4bb748bc251f1304e7abd71d0a26d339996c275955f527a131b1dcded67878280
+  languageName: node
+  linkType: hard
+
+"ws@npm:7.4.6":
+  version: 7.4.6
+  resolution: "ws@npm:7.4.6"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 3a990b32ed08c72070d5e8913e14dfcd831919205be52a3ff0b4cdd998c8d554f167c9df3841605cde8b11d607768cacab3e823c58c96a5c08c987e093eb767a
   languageName: node
   linkType: hard
 

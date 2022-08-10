@@ -19,10 +19,18 @@ export type FullProof = {
 }
 
 export type PublicSignals = {
-    merkleRoot: BigNumberish
+    signalHash: BigNumberish,
+    externalNullifier: BigNumberish,
+    // TODO: Fix roots
+    roots: BigNumberish[],
+
+    chainID: BigNumberish,
+    calculatedRoot: BigNumberish,
     nullifierHash: BigNumberish
-    signalHash: BigNumberish
-    externalNullifier: BigNumberish
+    // merkleRoot: BigNumberish
+    // nullifierHash: BigNumberish
+    // signalHash: BigNumberish
+    // externalNullifier: BigNumberish
 }
 
 export type SolidityProof = [

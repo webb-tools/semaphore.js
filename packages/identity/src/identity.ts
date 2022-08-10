@@ -6,12 +6,15 @@ import { genRandomNumber, isJsonArray, sha256 } from "./utils"
 export default class Identity {
     private _trapdoor: bigint
     private _nullifier: bigint
+    private _chainID: bigint
 
     /**
      * Initializes the class attributes based on the strategy passed as parameter.
      * @param identityOrMessage Additional data needed to create identity for given strategy.
      */
-    constructor(identityOrMessage?: string) {
+    constructor(chainID: bigint, identityOrMessage?: string) {
+        this._chainID = chainID
+
         if (identityOrMessage === undefined) {
             this._trapdoor = genRandomNumber()
             this._nullifier = genRandomNumber()
@@ -37,6 +40,14 @@ export default class Identity {
     }
 
     /**
+     * Returns the chainID.
+     * @returns The chainID.
+     */
+    public getChainID(): bigint {
+        return this._chainID
+    }
+
+    /**
      * Returns the identity trapdoor.
      * @returns The identity trapdoor.
      */
@@ -57,7 +68,7 @@ export default class Identity {
      * @returns identity commitment
      */
     public generateCommitment(): bigint {
-        return poseidon([poseidon([this._nullifier, this._trapdoor])])
+        return poseidon([poseidon([this._nullifier, this._trapdoor, this._chainID])])
     }
 
     /**
@@ -66,6 +77,6 @@ export default class Identity {
      * @returns The string representation of the identity.
      */
     public toString(): string {
-        return JSON.stringify([this._trapdoor.toString(16), this._nullifier.toString(16)])
+        return JSON.stringify([this._trapdoor.toString(16), this._nullifier.toString(16), this._chainID.toString(16)])
     }
 }
